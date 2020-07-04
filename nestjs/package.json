@@ -1,0 +1,68 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/main.js\"",
+    "start:debug": "tsc-watch -p tsconfig.build.json --onSuccess \"node --inspect-brk dist/main.js\"",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "nest-cli": "node ./dist/cli.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "^7.2.0",
+    "@nestjs/core": "^7.2.0",
+    "@nestjs/platform-express": "^7.2.0",
+    "commander": "^5.1.0",
+    "env-cmd": "^10.1.0",
+    "i18n-iso-countries": "^6.0.0",
+    "moment": "^2.27.0",
+    "nestjs-config": "^1.4.6",
+    "nestjs-console": "^3.0.6",
+    "nestjs-i18n": "^8.0.6",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^6.5.5",
+    "shortid": "^2.2.15"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^7.2.0",
+    "@types/express": "^4.17.6",
+    "@types/jest": "^26.0.3",
+    "@types/node": "^14.0.14",
+    "@types/shortid": "^0.0.29",
+    "@types/supertest": "^2.0.9",
+    "@types/yargs": "^15.0.5",
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5",
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.1.1",
+    "tsc-watch": "^4.2.9",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}

@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  nestjs:
+    build: ./nestjs
+    ports:
+      - "3777:3000"
+    volumes:
+      - ./nestjs/src:/app/src:cached
+      - ./nestjs/i18n:/app/i18n:cached
+      - ./nestjs/package.json:/app/package.json
+      - ./nestjs/yarn.lock:/app/yarn.lock
+    command: 'yarn run start:dev'
